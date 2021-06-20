@@ -4,7 +4,7 @@ interface Indexable {
 
 interface ListItem {
   index: number;
-  listId: string;
+  listId: number | string;
 }
 
 function clamp(value: number, max: number): number {
@@ -44,7 +44,7 @@ export function transferArrayItem<T extends ListItem>(
   targetArray: T[],
   currentIndex: number,
   targetIndex: number,
-  targetListId: string,
+  targetListId: number | string,
 ): T[] {
   const current = [...currentArray].sort((a, b) => a.index - b.index);
   const target = [...targetArray].sort((a, b) => a.index - b.index);
